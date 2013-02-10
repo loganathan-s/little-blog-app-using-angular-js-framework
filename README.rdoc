@@ -1,0 +1,37 @@
+== Welcome to Rails
+
+This is a ROR blog application which uses the RABL gem for json responses and 
+authentication is done without any additional gems except gem bcrypt-ruby to generate hashed password string.
+
+Api is available to clients inorder to retireve the blog categories, blog entries and can able to
+comment an blog entry via REST api in JSON format. And this application might contain
+validation error since this application is created for my personal reference.
+
+== Apis of this application
+
+1. Login API:
+       http://rabl-app.herokuapp.com/client_login.json?email=demo1@test.com&password=123456
+
+2. API to get all Blog Entries:
+       http://rabl-app.herokuapp.com/blog_entries.json?page=1(optional)
+
+3. API to get all Blog Categories:
+       http://rabl-app.herokuapp.com/blog_categories.json
+
+4. API to comment on Blog Entry.
+	POST URL: http://rabl-app.herokuapp.com//comments.json
+	
+	Request Body:
+	   {
+	    "token": "authtoken",
+	    "comment": {
+		"description": "This is my first comment from client",
+		"blog_entry_id": "1"
+	    }
+	}
+
+== Default Credentials
+
+1. User
+       Email: demo0@test.com, demo1@test.com
+       Password: 123456

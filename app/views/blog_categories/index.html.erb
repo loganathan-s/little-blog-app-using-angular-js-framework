@@ -1,0 +1,19 @@
+<h1><i>Blog categories</i></h1>
+
+<table>
+  <% @blog_categories.each do |blog_category| %>
+    <tr><h3><%= blog_category.name %></h3></tr><br/>
+      <tr><%= blog_category.description %></tr>&nbsp;&nbsp;&nbsp;
+      <% if current_user_category?(blog_category)%>
+        <tr><%= link_to 'Edit', edit_blog_category_path(blog_category) %></tr>
+        <tr><%= link_to 'Destroy', blog_category, method: :delete, data: { confirm: 'Are you sure?' } %></tr>
+      <% else %>
+        <tr><i><b>Created by</b> <%= blog_category.user.name %></i></tr>
+      <%  end%>
+      <tr>&nbsp;<%= link_to 'Show', blog_category %></tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Blog category', new_blog_category_path %>
